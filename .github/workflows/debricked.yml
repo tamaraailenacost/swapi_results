@@ -21,4 +21,4 @@ jobs:
 
       - name: Run Debricked scan
         run: |
-          ./debricked scan -e -e "**src/**" -e "**node_modules/**" 
+          ./debricked scan -e "**/src/**" -e "**/node_modules/**" 
