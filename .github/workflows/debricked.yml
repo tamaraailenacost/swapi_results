@@ -1,0 +1,24 @@
+name: Debricked Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  debricked-scan:
+    name: Run Debricked CLI
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up curl and tar (if not available)
+        run: sudo apt-get update && sudo apt-get install -y curl tar
+
+      - name: Download and extract Debricked CLI
+        run: |
+          curl -LsS https://github.com/debricked/cli/releases/download/release-v2/cli_linux_x86_64.tar.gz | tar -xz
+
+      - name: Run Debricked scan
+        run: |
+          ./debricked scan -e -e "**src/**" -e "**node_modules/**" 
