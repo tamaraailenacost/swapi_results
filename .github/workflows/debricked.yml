@@ -1,25 +1,13 @@
-name: Debricked Scan
+name: Debricked scan
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push]
 
 jobs:
-  debricked-scan:
-    name: Run Debricked CLI
+  vulnerabilities-scan:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up curl and tar (if not available)
-        run: sudo apt-get update && sudo apt-get install -y curl tar
-
-      - name: Download and extract Debricked CLI
-        run: |
-          curl -LsS https://github.com/debricked/cli/releases/download/release-v2/cli_linux_x86_64.tar.gz | tar -xz
-
-      - name: Run Debricked scan
-        run: |
-          cd $GITHUB_WORKSPACE  # Ensures the scan runs from the root of the repo
-          ./debricked scan
+      - uses: actions/checkout@v4
+      - uses: debricked/actions@v4
+        env:
+          DEBRICKED_TOKEN: ${{ secrets.DEBRICKED_TOKEN }}
