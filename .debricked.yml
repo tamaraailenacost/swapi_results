@@ -21,5 +21,4 @@ name: Debricked Scan
  
        - name: Run Debricked scan
          run: |
-           cd $GITHUB_WORKSPACE  # Ensures the scan runs from the root of the repo
            ./debricked scan --exclusion "src/package-lock.json"
