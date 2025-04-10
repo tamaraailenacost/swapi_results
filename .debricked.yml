@@ -1,11 +1,5 @@
 name: Debricked Scan
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
 jobs:
   debricked-scan:
     name: Run Debricked CLI
@@ -21,5 +15,4 @@ jobs:
 
       - name: Run Debricked scan
         run: |
-          cd $GITHUB_WORKSPACE  # Ensures the scan runs from the root of the repo
           ./debricked scan
