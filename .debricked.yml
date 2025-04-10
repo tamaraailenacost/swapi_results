@@ -21,4 +21,4 @@ name: Debricked Scan
  
        - name: Run Debricked scan
          run: |
-           ./debricked scan --exclusion "src/package-lock.json"
+           ./debricked scan  --exclusion "**/node_modules/**" --exclusion "**/src/package-lock.json"
