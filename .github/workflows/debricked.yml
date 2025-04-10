@@ -25,6 +25,6 @@ jobs:
 
       - name: Run Debricked scan
         run: |
-          ./debricked scan --exclusion "src/**"
+          ./debricked scan  --exclusion "**/node_modules/**" --exclusion "**/src/package-lock.json"
         env:
           DEBRICKED_TOKEN: ${{ secrets.DEBRICKED_TOKEN }}
