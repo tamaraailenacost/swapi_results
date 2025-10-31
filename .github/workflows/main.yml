@@ -64,3 +64,4 @@ github.run_id }})'
  uses: github/codeql-action/upload-sarif@v2
  with:
  sarif_file: ./gh-fortify-sast.sarif
+ 
