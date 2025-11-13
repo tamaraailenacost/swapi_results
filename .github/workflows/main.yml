@@ -37,6 +37,7 @@ jobs:
           FOD_CLIENT_SECRET: ${{secrets.FOD_CLIENT_SECRET}}
           FOD_RELEASE: ${{secrets.FOD_RELEASEID}}
           EXTRA_PACKAGE_OPTS: -bt none
+          #
           DO_WAIT: true
           DO_EXPORT: true
           DO_PACKAGE_DEBUG: true
